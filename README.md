@@ -1,2 +1,2 @@
 # vimeo-downloader
-.NET library for downloading Vimeo video's
+Asynchronous .NET library for downloading Vimeo video's
