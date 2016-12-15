@@ -8,6 +8,12 @@ How to
 
 	Video video = await Vimeo.Download(videoId);
 
+	string path = @"c:\" + video.FileName;
+	File.WriteAllBytes(path, video.Data);
+
 	//or specify the preffered quality
 
 	Video video = await Vimeo.Download(videoId, VideoQuality.High);
+
+	string path = @"c:\" + video.FileName;
+	File.WriteAllBytes(path, video.Data);
