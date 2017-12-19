@@ -1,21 +1,16 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Threading.Tasks;
-using System.IO;
+using Xunit;
 
-namespace VimeoDownloader.Tests
+namespace VimeoDownloader.UnitTests
 {
-    /// <summary>
-    /// Class VimeoTests.
-    /// </summary>
-    [TestClass]
     public class VimeoTests
     {
         /// <summary>
         /// Gets the video.
         /// </summary>
         /// <returns>Task.</returns>
-        [TestMethod]
+        [Fact]
         public async Task GetVideoWithLowQuality()
         {
             //arrange
@@ -25,14 +20,15 @@ namespace VimeoDownloader.Tests
             Video video = await Vimeo.Download(videoId, VideoQuality.Low);
 
             //assert
-            Assert.AreNotEqual(0, video.Data.Length);
-            Assert.AreNotEqual(string.Empty, video.FileName);
+            Assert.NotEqual(0, video.Data.Length);
+            Assert.NotEqual(string.Empty, video.FileName);
         }
+
         /// <summary>
         /// Gets the video.
         /// </summary>
         /// <returns>Task.</returns>
-        [TestMethod]
+        [Fact]
         public async Task GetVideoWithDefaultQuality()
         {
             //arrange
@@ -42,14 +38,15 @@ namespace VimeoDownloader.Tests
             Video video = await Vimeo.Download(videoId);
 
             //assert
-            Assert.AreNotEqual(0, video.Data.Length);
-            Assert.AreNotEqual(string.Empty, video.FileName);
+            Assert.NotEqual(0, video.Data.Length);
+            Assert.NotEqual(string.Empty, video.FileName);
         }
+
         /// <summary>
         /// Gets the video.
         /// </summary>
         /// <returns>Task.</returns>
-        [TestMethod]
+        [Fact]
         public async Task GetVideoWithHighQuality()
         {
             //arrange
@@ -59,8 +56,9 @@ namespace VimeoDownloader.Tests
             Video video = await Vimeo.Download(videoId, VideoQuality.High);
 
             //assert
-            Assert.AreNotEqual(0, video.Data.Length);
-            Assert.AreNotEqual(string.Empty, video.FileName);
+            Assert.NotEqual(0, video.Data.Length);
+            Assert.NotEqual(string.Empty, video.FileName);
         }
+
     }
 }
